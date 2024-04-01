@@ -48,8 +48,5 @@ public class AuthController {
         return new ResponeStatusDTO(response.getStatus(),null,"OK");
     }
 
-    @GetMapping(path = "/test")
-    public boolean tokenTest(@RequestParam(name = "token",required = true) String token){
-        return jwtService.isTokenValid(token);
-    }
+
 }
