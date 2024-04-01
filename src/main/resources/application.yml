@@ -5,9 +5,9 @@ spring:
   main:
     allow-circular-references: true
   datasource:
-    url: jdbc:postgresql://localhost:5432/TravelMarketPlace
+    url: jdbc:postgresql://35.240.226.176:5432/travelmarketplace
     username: postgres
-    password: 123456
+    password: capstonevlu
     jpa:
       hibernate:
         ddl-auto: none
