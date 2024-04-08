@@ -37,7 +37,7 @@ public class AuthService {
             if(authenticate.isAuthenticated()){
                 HashMap<String,Object> map = new HashMap<>();
                 BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-                UserLoginDTO userData = userRepository.generateUser(user.getEmail(),3);
+                UserLoginDTO userData = userRepository.generateUser(user.getEmail(),2);
                 return userData;
             }
             else{
