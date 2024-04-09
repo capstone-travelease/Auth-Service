@@ -55,7 +55,7 @@ public class AuthService {
             Optional<Users> users =  userRepository.findByEmail(user.getEmail());
             if(users.isEmpty()){
                 String passEncode = new BCryptPasswordEncoder().encode(user.getPassword());
-                userRepository.addUser(user.isGender(),3,user.getEmail(),user.getName(),passEncode,user.getPhonenumber(),user.getBirthday());
+                userRepository.addUser(user.isGender(),2,user.getEmail(),user.getName(),passEncode,user.getPhonenumber(),user.getBirthday());
                 return true;
             }
             return false;
