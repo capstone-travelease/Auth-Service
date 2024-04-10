@@ -5,8 +5,6 @@ package com.authservice.DTO;
 
 public class UserLoginDTO {
 
-
-
     private Integer userId;
     private String email;
     private String fullName;

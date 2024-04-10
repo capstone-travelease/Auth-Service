@@ -22,11 +22,15 @@ public interface UserRepository extends JpaRepository<Users,Integer> {
   @Query(value = "Select u.email from Users u where u.email = ?1")
   String findEmail(String email);
 
-  @Modifying
-  @Transactional
   @Query(value = "INSERT INTO public.users(\n" +
           "\tgender, role_id, email, full_name, password, phone_number, dob)\n" +
-          "\tVALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7)",nativeQuery = true)
-  void addUser(boolean gender, Integer roleId, String email, String fullName, String password, String phoneNumber, Date dob);
+          "\tVALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7) RETURNING user_id",nativeQuery = true)
+  Integer addUser(boolean gender, Integer roleId, String email, String fullName, String password, String phoneNumber, Date dob);
 
+  @Modifying
+  @Transactional
+  @Query(value = "INSERT INTO public.identify_card(\n" +
+          "\tuser_id, front, back)\n" +
+          "\tVALUES ( ?1, ?2, ?3)",nativeQuery = true)
+  void addIndentifyCard(Integer userId, String frontImage, String backImage);
 }
