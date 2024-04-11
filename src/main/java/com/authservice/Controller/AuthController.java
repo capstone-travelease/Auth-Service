@@ -17,7 +17,6 @@ import java.util.HashMap;
 
 
 @RestController
-@CrossOrigin("http://localhost:3000")
 @RequestMapping("/auth")
 public class AuthController {
 
