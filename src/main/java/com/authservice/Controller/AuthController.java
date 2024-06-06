@@ -42,10 +42,13 @@ public class AuthController {
 
     @PostMapping(path = "/sign")
     public ResponeStatusLoginDTO signUp(@RequestBody @Valid SignUpDTO request, HttpServletResponse response){
-        Object isCheckRespone = authService.signUp(request);
-        if(isCheckRespone == null){
-            response.setStatus(500);
-            return new ResponeStatusLoginDTO(response.getStatus(),null,"ERROR");
+        Integer isCheckRespone = authService.signUp(request);
+        if(isCheckRespone == HttpServletResponse.SC_BAD_REQUEST){
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            return new ResponeStatusLoginDTO(response.getStatus(),null,"Email is existed");
+        } else if (isCheckRespone == HttpServletResponse.SC_INTERNAL_SERVER_ERROR) {
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            return new ResponeStatusLoginDTO(response.getStatus(),null,"INTERNAL SERVER ERROR");
         }
         return new ResponeStatusLoginDTO(response.getStatus(),isCheckRespone,"OK");
     }

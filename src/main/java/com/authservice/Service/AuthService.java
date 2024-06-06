@@ -54,7 +54,7 @@ public class AuthService {
 
     }
 
-    public Object signUp(SignUpDTO user){
+    public Integer signUp(SignUpDTO user){
         try {
             Optional<Users> users =  userRepository.findByEmail(user.getEmail());
             if(users.isEmpty()){
@@ -62,10 +62,10 @@ public class AuthService {
                 Integer userId =  userRepository.addUser(user.isGender(),2,user.getEmail(),user.getName(),passEncode,user.getPhonenumber(),user.getBirthday());
                 return userId;
             }
-            return null;
+            return 400;
         }catch (Exception err){
             System.err.println(err);
-            return null;
+            return 500;
         }
     }
     public boolean upLoadImage(MultipartFile front,MultipartFile back, Integer userId){
