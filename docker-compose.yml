@@ -2,7 +2,7 @@ version: "3.3"
 services:
   login:
     container_name: auth-partner
-    image: ngoctienwork2002/auth-partner
+    image: coderbillzay/auth-partner
     ports:
       - '2910:2910'
     volumes:

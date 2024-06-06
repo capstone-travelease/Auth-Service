@@ -5,7 +5,7 @@ spring:
   main:
     allow-circular-references: true
   datasource:
-    url: jdbc:postgresql://35.240.226.176:5432/travelmarketplace
+    url: jdbc:postgresql://34.126.137.107:5432/travelmarketplace
     username: postgres
     password: capstonevlu
     jpa:
@@ -23,11 +23,11 @@ spring:
 
 eureka:
   instance:
-    preferIpAddress: true
-    hostname: 10.148.0.10
+#    preferIpAddress: true
+    hostname: 34.126.186.221
   client:
     service-url:
-      defaultZone: http://10.148.0.10:8761/eureka/
+      defaultZone: http://34.126.186.221:8761/eureka/
 
 
 

@@ -17,7 +17,7 @@ import java.util.HashMap;
 
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/partner/auth")
 public class AuthController {
 
     @Autowired
